@@ -2,10 +2,9 @@ name: docs-drift-checker
 display_name: Docs Drift Checker
 version: 0.1.0
 description: >
-  Compares a repo's code to its documentation and finds drift — outdated
-  examples, missing API docs, stale references, wrong function signatures,
-  removed features still documented, and new features not yet documented.
-  Gives you a prioritized report with exact file locations and suggested fixes.
+  Scans a codebase against its docs and finds drift — wrong signatures, stale
+  references, missing docs for new features. Produces a prioritized report
+  with exact locations and suggested fixes. Read-only.
 category: coding
 tags: [documentation, code-quality, drift, review, audit]
 author:
