@@ -14,7 +14,7 @@ import { readFileSync, readdirSync, existsSync } from "fs";
 import { join, resolve } from "path";
 
 const WORKSPACE = process.env.WORKSPACE || process.cwd();
-const MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-5-20250929";
+const MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001";
 
 const anthropic = new Anthropic();
 
