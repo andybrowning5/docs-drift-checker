@@ -1,0 +1,42 @@
+name: docs-drift-checker
+display_name: Docs Drift Checker
+version: 0.1.0
+description: >
+  Compares a repo's code to its documentation and finds drift — outdated
+  examples, missing API docs, stale references, wrong function signatures,
+  removed features still documented, and new features not yet documented.
+  Gives you a prioritized report with exact file locations and suggested fixes.
+category: coding
+tags: [documentation, code-quality, drift, review, audit]
+author:
+  name: Andy Browning
+  github: andybrowning5
+
+runtime:
+  language: node
+  run_command: node bundle.mjs 2>/dev/null || node src/agent.js
+  setup_command: test -f bundle.mjs || npm install
+  dependencies: package.json
+  default_model:
+    provider: anthropic
+    model: claude-sonnet-4-5-20250929
+  resources:
+    max_memory: 2GB
+    max_cpu: 2
+    max_time: 30m
+
+permissions:
+  filesystem:
+    workspace: readonly
+  network:
+    - domain: api.anthropic.com
+      reason: LLM inference for code and documentation analysis
+  delegation:
+    enabled: false
+
+keys:
+  - provider: anthropic
+    env_var: ANTHROPIC_API_KEY
+    domain: api.anthropic.com
+    auth_style: x-api-key
+    required: true
