@@ -1,10 +1,10 @@
 name: docs-drift-checker
 display_name: Docs Drift Checker
-version: 0.1.0
+version: 0.2.0
 description: >
   Scans a codebase against its docs and finds drift — wrong signatures, stale
-  references, missing docs for new features. Produces a prioritized report
-  with exact locations and suggested fixes. Read-only.
+  references, missing docs for new features. Fixes issues directly using
+  Edit and Write tools, then produces a report of what was changed.
 category: coding
 tags: [documentation, code-quality, drift, review, audit]
 author:
@@ -26,7 +26,7 @@ runtime:
 
 permissions:
   filesystem:
-    workspace: readonly
+    workspace: readwrite
   network:
     - domain: api.anthropic.com
       reason: LLM inference for code and documentation analysis
