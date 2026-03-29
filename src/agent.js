@@ -8,6 +8,7 @@ import { query } from "@anthropic-ai/claude-agent-sdk";
 import { createInterface } from "readline";
 
 const WORKSPACE = process.env.WORKSPACE || process.cwd();
+process.chdir(WORKSPACE);
 
 function send(msg) {
   process.stdout.write(JSON.stringify(msg) + "\n");

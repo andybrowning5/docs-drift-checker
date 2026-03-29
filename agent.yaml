@@ -14,7 +14,7 @@ author:
 runtime:
   language: node
   run_command: node bundle.mjs 2>/dev/null || node src/agent.js
-  setup_command: (test -f bundle.mjs || npm install) && (command -v claude >/dev/null 2>&1 || npm install -g @anthropic-ai/claude-code)
+  setup_command: npm install && (command -v claude >/dev/null 2>&1 || npm install -g @anthropic-ai/claude-code)
   dependencies: package.json
   default_model:
     provider: anthropic
